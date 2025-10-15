@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: contra-o-bullying
+    env: python
+    rootDir: bullyin-main
+    plan: free
+    region: oregon
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Plataforma de conscientização sobre bullying e cyberbullying. Informações, denúncias e recursos para combater o bullying.">
+    <meta name="keywords" content="bullying, cyberbullying, conscientização, denúncia, prevenção">
+    <meta name="author" content="Contra o Bullying">
+    
+    <title>{% block title %}Contra o Bullying - Conscientização e Prevenção{% endblock %}</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="Contra o Bullying - Conscientização e Prevenção">
+    <meta property="og:description" content="Plataforma de conscientização sobre bullying e cyberbullying. Informações, denúncias e recursos para combater o bullying.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/og-image.png') }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.url }}">
+    <meta property="twitter:title" content="Contra o Bullying - Conscientização e Prevenção">
+    <meta property="twitter:description" content="Plataforma de conscientização sobre bullying e cyberbullying. Informações, denúncias e recursos para combater o bullying.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/og-image.png') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar custom-navbar">
+        <div class="container">
+            <!-- Logo e Título Centralizados -->
+            <div class="text-center w-100 position-relative" id="brand-wrapper">
+                <a class="navbar-brand" id="navbar-brand-link" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Contra o Bullying" id="navbar-brand-logo">
+                    Contra o Bullying
+                </a>
+                <!-- Removido hotspot da logo -->
+            </div>
+            
+            <!-- Menu de Navegação Centralizado -->
+            <div class="w-100">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'index' %}active{% endif %}" href="{{ url_for('index') }}">
+                            <i class="fas fa-home me-2"></i> Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'sobre' %}active{% endif %}" href="{{ url_for('sobre') }}">
+                            <i class="fas fa-info-circle me-2"></i> Sobre
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'estatisticas' %}active{% endif %}" href="{{ url_for('estatisticas') }}">
+                            <i class="fas fa-chart-bar me-2"></i> Estatísticas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'contato' %}active{% endif %}" href="{{ url_for('contato') }}">
+                            <i class="fas fa-envelope me-2"></i> Contato
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'denuncia' %}active{% endif %}" href="{{ url_for('denuncia') }}">
+                            <i class="fas fa-exclamation-triangle me-2"></i> Denúncia
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="admin-button" class="nav-link custom-nav-btn" href="#" role="button">
+                            <i class="fas fa-user-shield me-2"></i> Admin
+                        </a>
+                    </li>
+                    {% if session.get('is_admin') %}
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-btn {% if request.endpoint == 'admin_dashboard' %}active{% endif %}" href="{{ url_for('admin_dashboard') }}">
+                            <i class="fas fa-user-shield me-2"></i> Admin
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                        <i class="fas fa-{{ 'exclamation-circle' if category == 'error' else 'check-circle' }} me-2"></i>
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Page Content -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Contra o Bullying" class="mb-2">
+                    <p class="mb-0">Projeto de conscientização sobre bullying e cyberbullying</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2025 Contra o Bullying - Projeto Acadêmico</p>
+                    <small class="text-muted">Desenvolvido para fins educacionais</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    <!-- Analytics (opcional) -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>
