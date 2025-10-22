@@ -10,14 +10,6 @@
                 <strong>Total de denúncias:</strong> {{ total_denuncias or 0 }}
             </div>
         </div>
-        <div class="col-md-4 text-md-end">
-            <div class="d-flex flex-column flex-md-row gap-2">
-                <a href="{{ url_for('estatisticas') }}" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-chart-bar me-1"></i>Estatísticas
-                </a>
-                <a href="{{ url_for('denuncia') }}" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-plus me-1"></i>Nova Denúncia
-                </a>
                 <a href="{{ url_for('admin_logout') }}" class="btn btn-danger btn-sm">
                     <i class="fas fa-sign-out-alt me-1"></i>Sair
                 </a>
@@ -152,4 +144,5 @@
     </div>
 </section>
 {% endblock %}
+
 
