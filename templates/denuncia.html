@@ -3,13 +3,40 @@
 {% block title %}Denúncia - Contra o Bullying{% endblock %}
 
 {% block content %}
-<!-- Título Principal -->
 <section class="page-box text-center">
     <h1 class="mb-4">Denuncie um Caso de Bullying</h1>
     <p class="lead">Preencha o formulário para registrar uma denúncia de bullying ou cyberbullying. Sua identidade será mantida em sigilo.</p>
 </section>
 
-<!-- Cards Informativos -->
+<section class="page-box">
+    <div class="alert alert-danger text-center">
+        <h4 class="alert-heading">
+            <i class="fas fa-exclamation-triangle me-2"></i>Emergência
+        </h4>
+        <p class="mb-3">Se você está em situação de perigo imediato, procure ajuda imediatamente:</p>
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-4">
+                <div class="card border-danger">
+                    <div class="card-body text-center">
+                        <i class="fas fa-phone fa-2x text-danger mb-2"></i>
+                        <h5 class="card-title">Polícia Militar</h5>
+                        <p class="card-text"><strong>190</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-danger">
+                    <div class="card-body text-center">
+                        <i class="fas fa-heart fa-2x text-danger mb-2"></i>
+                        <h5 class="card-title">Centro de Valorização da Vida</h5>
+                        <p class="card-text"><strong>188</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="page-box">
     <div class="cards-row">
         <div class="card text-center">
@@ -116,4 +143,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 {% endblock %}
+
 {% endblock %}
