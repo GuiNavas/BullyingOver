@@ -13,7 +13,7 @@ Plataforma de conscientização sobre bullying e cyberbullying com sistema de de
 2. Clique em "New +" → "Web Service"
 3. Conecte seu repositório GitHub
 4. Configure:
-   - **Name**: `bullying-site` (ou nome de sua escolha)
+   - **Name**: `bullyingover` (ou nome de sua escolha)
    - **Runtime**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `gunicorn app:app`
@@ -24,22 +24,21 @@ Plataforma de conscientização sobre bullying e cyberbullying com sistema de de
 - O deploy será feito automaticamente
 - Você receberá uma URL pública
 
-## 📱 Recursos
 
-### ✅ **Funcionalidades**
+### **Funcionalidades**
 - **Página Inicial**: Informações sobre bullying
 - **Sobre**: Detalhes sobre o projeto
 - **Estatísticas**: Gráficos e dados simulados
 - **Denúncia**: Formulário para reportar casos
 - **Contato**: Formulário de contato
 
-### ✅ **Responsividade**
+### **Responsividade**
 - **Desktop**: Layout completo
 - **Tablet**: Adaptado para telas médias
 - **Mobile**: Otimizado para smartphones
 - **Celulares pequenos**: Suporte até 320px
 
-### ✅ **Tecnologias**
+###**Tecnologias**
 - **Backend**: Flask (Python)
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Framework CSS**: Bootstrap 5
@@ -47,40 +46,23 @@ Plataforma de conscientização sobre bullying e cyberbullying com sistema de de
 - **Gráficos**: Matplotlib
 - **Banco**: SQLite
 
-## 🔧 Desenvolvimento Local
-
 ### **Requisitos**
 - Python 3.11 (ou compatível)
 - pip (gerenciador de pacotes do Python)
 - (Opcional, recomendado) virtualenv/venv
 
-### **Instalação**
+###**Instalação**
 ```bash
 pip install -r requirements.txt
 ```
 
-### **Execução**
+###**Execução**
 ```bash
 python app.py
 ```
 
-### **Acesso**
-- **Local**: `http://localhost:5000`
-- **Rede**: `http://SEU_IP:5000`
-
-### **Passo a passo no Windows (PowerShell)**
-```bash
-cd "C:\Users\hamud\Downloads\bullyin-main\bullyin-main"
-python -m venv venv
-venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python app.py
-```
-
-### **Área de Administrador**
-- Clique na logo pequena no topo para abrir o prompt.
-- Senha: `DanielGuilherme`
-- Após sucesso: `http://localhost:5000/admin`
+###**Acesso**
+- **Site**: `https://bullyingover.onrender.com`
 
 ## 📊 Estrutura do Projeto
 
@@ -109,7 +91,7 @@ bullying-main/
     └── contato.html
 ```
 
-## 🎨 Design
+## Design
 
 ### **Cores**
 - **Primária**: #e53935 (Vermelho)
@@ -121,15 +103,10 @@ bullying-main/
 - **Fonte**: Inter (Google Fonts)
 - **Tamanhos**: Responsivos para mobile
 
-## 📱 Teste Mobile
-
-### **Local**
-1. Execute: `python app.py`
-2. Descubra seu IP: `ipconfig` (Windows) ou `ifconfig` (Mac/Linux)
-3. Acesse no celular: `http://SEU_IP:5000`
+## Teste Mobile
 
 ### **Online**
-- Use a URL fornecida pelo Render
+- Use a URL fornecida pelo Render(https://bullyingover.onrender.com)
 - Teste em diferentes dispositivos
 
 ## 🔒 Segurança
@@ -138,21 +115,22 @@ bullying-main/
 - **Projeto acadêmico**: Desenvolvido para fins educacionais
 - **Validação**: Formulários com validação client-side e server-side
 
-## 📈 Performance
+## Performance
 
 - **CSS otimizado**: Carregamento rápido
 - **JavaScript eficiente**: Funcionalidades responsivas
 - **Imagens otimizadas**: Tamanhos adequados
 - **Mobile-first**: Design otimizado para celular
 
-## 🤝 Contribuição
+## Contribuição
 
 Este é um projeto acadêmico de conscientização sobre bullying. 
 
-## 📄 Licença
+##  Licença
 
 Projeto acadêmico - Uso educacional.
 
 ---
 
-**Desenvolvido com ❤️ para combater o bullying**
+
+**Desenvolvido para combater o bullying**
